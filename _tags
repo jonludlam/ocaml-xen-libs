@@ -1,0 +1,44 @@
+# OASIS_START
+# DO NOT EDIT (digest: b2ea36d5a300179e7b2442b4f0533346)
+# Ignore VCS directories, you can use the same kind of rule outside 
+# OASIS_START/STOP if you want to exclude directories that contains 
+# useless stuff for the build process
+<**/.svn>: -traverse
+<**/.svn>: not_hygienic
+".bzr": -traverse
+".bzr": not_hygienic
+".hg": -traverse
+".hg": not_hygienic
+".git": -traverse
+".git": not_hygienic
+"_darcs": -traverse
+"_darcs": not_hygienic
+# Library xenmmap
+"lib/xenmmap/xenmmap.cmxs": use_xenmmap
+<lib/xenmmap/xenmmap.{cma,cmxa}>: use_libxenmmap_stubs
+# Library xeneventchn
+"lib/xeneventchn/xeneventchn.cmxs": use_xeneventchn
+<lib/xeneventchn/xeneventchn.{cma,cmxa}>: oasis_library_xeneventchn_cclib
+"lib/xeneventchn/libxeneventchn_stubs.lib": oasis_library_xeneventchn_cclib
+"lib/xeneventchn/dllxeneventchn_stubs.dll": oasis_library_xeneventchn_cclib
+"lib/xeneventchn/libxeneventchn_stubs.a": oasis_library_xeneventchn_cclib
+"lib/xeneventchn/dllxeneventchn_stubs.so": oasis_library_xeneventchn_cclib
+<lib/xeneventchn/xeneventchn.{cma,cmxa}>: use_libxeneventchn_stubs
+# Library xenctrl
+"lib/xenctrl/xenctrl.cmxs": use_xenctrl
+<lib/xenctrl/xenctrl.{cma,cmxa}>: oasis_library_xenctrl_cclib
+"lib/xenctrl/libxenctrl_stubs.lib": oasis_library_xenctrl_cclib
+"lib/xenctrl/dllxenctrl_stubs.dll": oasis_library_xenctrl_cclib
+"lib/xenctrl/libxenctrl_stubs.a": oasis_library_xenctrl_cclib
+"lib/xenctrl/dllxenctrl_stubs.so": oasis_library_xenctrl_cclib
+<lib/xenctrl/xenctrl.{cma,cmxa}>: use_libxenctrl_stubs
+<lib/xenctrl/*.ml{,i}>: use_xenmmap
+"lib/xenctrl/xenctrl_stubs.c": use_xenmmap
+# Executable test
+<test.{native,byte}>: use_xenctrl
+<test.{native,byte}>: use_xenmmap
+<test.{native,byte}>: pkg_unix
+<*.ml{,i}>: use_xenctrl
+<*.ml{,i}>: use_xenmmap
+<*.ml{,i}>: pkg_unix
+# OASIS_STOP

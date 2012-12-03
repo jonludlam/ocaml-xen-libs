@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 32167a2339bae3a2dadbeb3f3d00467f)
+version = "0.1"
+description = "Xen libraries"
+requires = "xenmmap"
+archive(byte) = "xenctrl.cma"
+archive(byte, plugin) = "xenctrl.cma"
+archive(native) = "xenctrl.cmxa"
+archive(native, plugin) = "xenctrl.cmxs"
+exists_if = "xenctrl.cma"
+# OASIS_STOP
+

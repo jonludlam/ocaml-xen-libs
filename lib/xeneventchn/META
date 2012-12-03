@@ -1,0 +1,11 @@
+# OASIS_START
+# DO NOT EDIT (digest: 75d92840fcaf12e5a90c99e070769b0d)
+version = "0.1"
+description = "Xen libraries"
+archive(byte) = "xeneventchn.cma"
+archive(byte, plugin) = "xeneventchn.cma"
+archive(native) = "xeneventchn.cmxa"
+archive(native, plugin) = "xeneventchn.cmxs"
+exists_if = "xeneventchn.cma"
+# OASIS_STOP
+

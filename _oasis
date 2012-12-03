@@ -1,0 +1,34 @@
+OASISFormat:  0.3
+Name:         xen-libs
+Version:      0.1
+Synopsis:     Xen libraries
+License:      LGPL-2.1 with OCaml linking exception
+Authors:      various
+Copyrights:   (C) 2012 Citrix
+BuildTools:   ocamlbuild
+Plugins:      DevFiles (0.3), META (0.3)
+
+Library xenmmap
+  Path: lib/xenmmap
+  Modules: Xenmmap
+  CSources: xenmmap_stubs.c, mmap_stubs.h
+
+Library xeneventchn
+  Path: lib/xeneventchn
+  Modules: Xeneventchn
+  CSources: xeneventchn_stubs.c
+  CCLib: -lxenctrl
+
+Library xenctrl
+  Path: lib/xenctrl
+  Modules: Xenctrl
+  CSources: xenctrl_stubs.c, mmap_stubs.h
+  CCLib: -lxenctrl -lxenguest
+  BuildDepends: xenmmap
+
+Executable test
+  CompiledObject: best
+  Path: .
+  MainIs: test.ml
+  BuildDepends: unix, xenmmap, xenctrl
+
