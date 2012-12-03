@@ -28,6 +28,7 @@ Library xenctrl
 
 Executable test
   CompiledObject: best
+  Install: false
   Path: .
   MainIs: test.ml
   BuildDepends: unix, xenmmap, xenctrl
